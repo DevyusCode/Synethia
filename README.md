@@ -1,5 +1,5 @@
 # Synethia
- A C# algorithm that can determine the way the user behaves with an app.
+A C# algorithm that can determine the behaviour of a user with an application.
 
 ## Features
 - [x] Detects how long the user is using which part of an app. (like a page)
