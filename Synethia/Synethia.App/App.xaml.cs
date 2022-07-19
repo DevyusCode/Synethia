@@ -22,12 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Classes;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Synethia.App;
@@ -42,6 +36,6 @@ public partial class App : Application
 		Global.Page1 = new(); // Init Page1
 		Global.DashboardPage = new(); // Set default value
 
-		base.OnStartup(e);	
+		base.OnStartup(e);
 	}
 }
