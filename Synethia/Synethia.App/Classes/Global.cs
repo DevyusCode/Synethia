@@ -21,26 +21,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using Synethia.App.Classes;
+using Synethia.App.Pages;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
-namespace Synethia.App;
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
-public partial class App : Application
+namespace Synethia.App.Classes;
+public static class Global
 {
-	protected override void OnStartup(StartupEventArgs e)
-	{
-		// Define Global properties
-		Global.DashboardPage = new(); // Set default value
-
-		base.OnStartup(e);	
-	}
+	public static DashboardPage DashboardPage { get; set; }
 }
