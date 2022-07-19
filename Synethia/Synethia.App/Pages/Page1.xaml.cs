@@ -31,7 +31,7 @@ public partial class Page1 : Page
 {
 	internal int EnterUnixTime { get; set; }
 	internal int ExitUnixTime { get; set; }
-	internal int TotalTime { get; set; }
+	internal int TotalTime { get; set; } = 0;
 	public Page1()
 	{
 		InitializeComponent();

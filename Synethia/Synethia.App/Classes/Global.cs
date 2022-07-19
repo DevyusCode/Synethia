@@ -32,4 +32,5 @@ namespace Synethia.App.Classes;
 public static class Global
 {
 	public static DashboardPage DashboardPage { get; set; }
+	public static Page1 Page1 { get; set; }
 }

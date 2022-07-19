@@ -39,6 +39,7 @@ public partial class App : Application
 	protected override void OnStartup(StartupEventArgs e)
 	{
 		// Define Global properties
+		Global.Page1 = new(); // Init Page1
 		Global.DashboardPage = new(); // Set default value
 
 		base.OnStartup(e);	

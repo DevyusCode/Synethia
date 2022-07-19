@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+using Synethia.App.Classes;
 using System.Windows.Controls;
 
 namespace Synethia.App.Pages;
@@ -32,5 +33,11 @@ public partial class DashboardPage : Page
 	public DashboardPage()
 	{
 		InitializeComponent();
+		LoadData();
+	}
+
+	internal void LoadData()
+	{
+		Page1ScoreTxt.Text = Global.Page1.TotalTime.ToString(); // TODO: Show the REAL score
 	}
 }
