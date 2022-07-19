@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+using Synethia.App.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,13 @@ public partial class MainWindow : Window
 	public MainWindow()
 	{
 		InitializeComponent();
+		InitUI(); // Initialize the UI
+	}
+
+	private void InitUI()
+	{
+		DashboardBtn.IsChecked = true;
+		ContentFrame.Navigate(Global.DashboardPage);
 	}
 
 	private void ResetCheckStatus()
@@ -59,6 +67,8 @@ public partial class MainWindow : Window
 	{
 		ResetCheckStatus(); // Reset "IsChecked" state
 		DashboardBtn.IsChecked = true;
+
+		ContentFrame.Navigate(Global.DashboardPage); // Show the corresponding page
 	}
 
 	private void Page1Btn_Click(object sender, RoutedEventArgs e)
