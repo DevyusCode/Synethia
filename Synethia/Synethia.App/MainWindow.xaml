@@ -19,6 +19,6 @@
 			<ToggleButton x:Name="Page3Btn" Click="Page3Btn_Click" Content="Page3" Padding="10" Margin="5" FontWeight="Bold"/>
 		</StackPanel>
 
-        <Frame x:Name="ContentFrame" Grid.Column="1"/>
+        <Frame x:Name="ContentFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
