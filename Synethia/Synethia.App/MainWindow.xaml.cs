@@ -24,23 +24,35 @@ public partial class MainWindow : Window
 		InitializeComponent();
 	}
 
+	private void ResetCheckStatus()
+	{
+		DashboardBtn.IsChecked = false;
+		Page1Btn.IsChecked = false;
+		Page2Btn.IsChecked = false;
+		Page3Btn.IsChecked = false;
+	}
+
 	private void DashboardBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		ResetCheckStatus(); // Reset "IsChecked" state
+		DashboardBtn.IsChecked = true;
 	}
 
 	private void Page1Btn_Click(object sender, RoutedEventArgs e)
 	{
-
+		ResetCheckStatus(); // Reset "IsChecked" state
+		Page1Btn.IsChecked = true;
 	}
 
 	private void Page2Btn_Click(object sender, RoutedEventArgs e)
 	{
-
+		ResetCheckStatus(); // Reset "IsChecked" state
+		Page2Btn.IsChecked = true;
 	}
 
 	private void Page3Btn_Click(object sender, RoutedEventArgs e)
 	{
-
+		ResetCheckStatus(); // Reset "IsChecked" state
+		Page3Btn.IsChecked = true;
 	}
 }
