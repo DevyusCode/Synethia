@@ -23,4 +23,24 @@ public partial class MainWindow : Window
 	{
 		InitializeComponent();
 	}
+
+	private void DashboardBtn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
+
+	private void Page1Btn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
+
+	private void Page2Btn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
+
+	private void Page3Btn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
 }
