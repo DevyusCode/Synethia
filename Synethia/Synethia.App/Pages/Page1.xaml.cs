@@ -46,6 +46,7 @@ public partial class Page1 : Page
 		{
 			if (!code)
 			{
+				code = true;
 				// For each button of the page
 				foreach (Button b in FindVisualChildren<Button>(this))
 				{

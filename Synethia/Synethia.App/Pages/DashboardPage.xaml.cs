@@ -38,6 +38,7 @@ public partial class DashboardPage : Page
 
 	internal void LoadData()
 	{
-		Page1ScoreTxt.Text = Global.Page1.TotalTime.ToString(); // TODO: Show the REAL score
+		Page1ScoreTxt.Text = $"Total time spent: {Global.Page1.TotalTime}\n" +
+			$"Number of interaction(s): {Global.Page1.TotalInteractionCount}";
 	}
 }
