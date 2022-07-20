@@ -36,4 +36,14 @@ public partial class Page1 : Page
 	{
 		InitializeComponent();
 	}
+
+	private void Btn1_Click(object sender, System.Windows.RoutedEventArgs e)
+	{
+		
+	}
+
+	private void Btn2_Click(object sender, System.Windows.RoutedEventArgs e)
+	{
+
+	}
 }
