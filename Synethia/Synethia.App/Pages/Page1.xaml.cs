@@ -21,7 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Synethia.App.Pages;
 /// <summary>
@@ -32,18 +36,47 @@ public partial class Page1 : Page
 	internal int EnterUnixTime { get; set; }
 	internal int ExitUnixTime { get; set; }
 	internal int TotalTime { get; set; } = 0;
+	internal int TotalInteractionCount { get; set; }
+
+	bool code = false;
 	public Page1()
 	{
 		InitializeComponent();
+		Loaded += (o, e) => 
+		{
+			if (!code)
+			{
+				// For each button of the page
+				foreach (Button b in FindVisualChildren<Button>(this))
+				{
+					b.Click += (sender, e) =>
+					{
+						TotalInteractionCount++;
+					};
+				}
+			}
+		};
 	}
 
-	private void Btn1_Click(object sender, System.Windows.RoutedEventArgs e)
+	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
-		
+		MessageBox.Show("You clicked Button 1!");		
 	}
 
-	private void Btn2_Click(object sender, System.Windows.RoutedEventArgs e)
+	private void Btn2_Click(object sender, RoutedEventArgs e)
 	{
+		MessageBox.Show("You clicked Button 2!");
+	}
 
+	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+	{
+		if (depObj == null) yield return (T)Enumerable.Empty<T>();
+		for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+		{
+			DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
+			if (ithChild == null) continue;
+			if (ithChild is T t) yield return t;
+			foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+		}
 	}
 }
