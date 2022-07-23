@@ -39,6 +39,7 @@ public partial class DashboardPage : Page
 	internal void LoadData()
 	{
 		Page1ScoreTxt.Text = $"Total time spent: {Global.Page1.TotalTime}\n" +
-			$"Number of interaction(s): {Global.Page1.TotalInteractionCount}";
+			$"Number of interaction(s): {Global.Page1.TotalInteractionCount}\n" +
+			$"Synethia Score: {Global.Page1.TotalTime * (Global.Page1.TotalInteractionCount > 0 ? Global.Page1.TotalInteractionCount / 2d : 1d)}";
 	}
 }
