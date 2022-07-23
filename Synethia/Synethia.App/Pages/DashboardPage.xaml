@@ -46,5 +46,9 @@
                 </Border>
             </StackPanel>
 		</StackPanel>
+        <StackPanel Margin="5" Grid.Row="1">
+            <TextBlock Text="Recommanded Pages" FontSize="20" FontWeight="Bold" />
+            <TextBlock x:Name="RecommandedTxt" d:Text="#1 - Page2" FontSize="16" Margin="5"/>
+        </StackPanel>
 	</Grid>
 </Page>

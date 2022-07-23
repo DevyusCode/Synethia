@@ -22,6 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Classes;
+using Synethia.App.Enums;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace Synethia.App.Pages;
@@ -45,5 +48,23 @@ public partial class DashboardPage : Page
 		Page2ScoreTxt.Text = $"Total time spent: {Global.Page2.TotalTime}\n" +
 			$"Number of interaction(s): {Global.Page2.TotalInteractionCount}\n" +
 			$"Synethia Score: {Global.Page2.TotalTime * (Global.Page2.TotalInteractionCount > 0 ? Global.Page2.TotalInteractionCount / 2d : 1d)}";
+
+
+		// Recommanded page section
+		Dictionary<AppPages, double> appScores = new();
+		appScores.Add(AppPages.Page1, Global.Page1.TotalTime * (Global.Page1.TotalInteractionCount > 0 ? Global.Page1.TotalInteractionCount / 2d : 1d));
+		appScores.Add(AppPages.Page2, Global.Page2.TotalTime * (Global.Page2.TotalInteractionCount > 0 ? Global.Page2.TotalInteractionCount / 2d : 1d));
+
+		// Sort by score
+		var sorted = appScores.OrderByDescending(x => x.Value);
+
+		// Display to the user (RecommandedTxt)
+		RecommandedTxt.Text = ""; // Clear text
+		int c = 0;
+		foreach (var item in sorted)
+		{
+			c++;
+			RecommandedTxt.Text += $"#{c} - {item.Key} - {item.Value}\n";
+		}
 	}
 }
