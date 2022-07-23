@@ -59,6 +59,11 @@ public partial class MainWindow : Window
 			Global.Page1.ExitUnixTime = Env.UnixTime;
 			Global.Page1.TotalTime += Global.Page1.ExitUnixTime - Global.Page1.EnterUnixTime;
 		}
+		else if (ContentFrame.Content is Page2)
+		{
+			Global.Page2.ExitUnixTime = Env.UnixTime;
+			Global.Page2.TotalTime += Global.Page2.ExitUnixTime - Global.Page2.EnterUnixTime;
+		}
 	}
 
 	private void DashboardBtn_Click(object sender, RoutedEventArgs e)
@@ -74,6 +79,8 @@ public partial class MainWindow : Window
 
 	private void Page1Btn_Click(object sender, RoutedEventArgs e)
 	{
+		LeavePage();
+
 		ResetCheckStatus(); // Reset "IsChecked" state
 		Page1Btn.IsChecked = true;
 
@@ -87,6 +94,9 @@ public partial class MainWindow : Window
 
 		ResetCheckStatus(); // Reset "IsChecked" state
 		Page2Btn.IsChecked = true;
+
+		ContentFrame.Navigate(Global.Page2); // Show the corresponding page
+		Global.Page2.EnterUnixTime = Env.UnixTime;
 	}
 
 	private void Page3Btn_Click(object sender, RoutedEventArgs e)

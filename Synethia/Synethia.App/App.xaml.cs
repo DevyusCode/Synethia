@@ -34,6 +34,7 @@ public partial class App : Application
 	{
 		// Define Global properties
 		Global.Page1 = new(); // Init Page1
+		Global.Page2 = new(); // Init Page2
 		Global.DashboardPage = new(); // Set default value
 
 		base.OnStartup(e);

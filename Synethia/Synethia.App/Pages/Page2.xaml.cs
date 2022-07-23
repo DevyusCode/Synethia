@@ -66,6 +66,7 @@ public partial class Page2 : Page
 					};
 				}
 
+				// For each TextBox of the page
 				foreach (TextBox textBox in Global.FindVisualChildren<TextBox>(this))
 				{
 					textBox.GotFocus += (o, e) =>
