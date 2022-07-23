@@ -5,10 +5,23 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>Synethia.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Synethia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LeoCorpLibrary" Version="4.8.0.2207" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Synethia.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
