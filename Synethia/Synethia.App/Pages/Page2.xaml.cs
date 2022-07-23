@@ -22,17 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Synethia.App.Pages;
 /// <summary>
-/// Interaction logic for Page1.xaml
+/// Interaction logic for Page2.xaml
 /// </summary>
-public partial class Page1 : Page
+public partial class Page2 : Page
 {
 	internal int EnterUnixTime { get; set; }
 	internal int ExitUnixTime { get; set; }
@@ -40,10 +49,10 @@ public partial class Page1 : Page
 	internal int TotalInteractionCount { get; set; }
 
 	bool code = false;
-	public Page1()
+	public Page2()
 	{
 		InitializeComponent();
-		Loaded += (o, e) => 
+		Loaded += (o, e) =>
 		{
 			if (!code)
 			{
@@ -56,17 +65,25 @@ public partial class Page1 : Page
 						TotalInteractionCount++;
 					};
 				}
+
+				foreach (TextBox textBox in Global.FindVisualChildren<TextBox>(this))
+				{
+					textBox.GotFocus += (o, e) =>
+					{
+						TotalInteractionCount++;
+					};
+				}
 			}
 		};
 	}
 
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
-		MessageBox.Show("You clicked Button 1!");		
+		TextBox1.Text = "Click";
 	}
 
-	private void Btn2_Click(object sender, RoutedEventArgs e)
+	private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
 	{
-		MessageBox.Show("You clicked Button 2!");
-	}	
+		Text1.Text = TextBox1.Text; // Set the text while the user is typing
+	}
 }

@@ -22,10 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Pages;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Media;
+using System.Windows;
 
 namespace Synethia.App.Classes;
 public static class Global
 {
 	public static DashboardPage DashboardPage { get; set; }
 	public static Page1 Page1 { get; set; }
+
+	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+	{
+		if (depObj == null) yield return (T)Enumerable.Empty<T>();
+		for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+		{
+			DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
+			if (ithChild == null) continue;
+			if (ithChild is T t) yield return t;
+			foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+		}
+	}
 }
