@@ -1,5 +1,22 @@
-# Synethia
-A C# algorithm that can determine the behaviour of a user with an application.
+<br />
+<p align="center">
+  <a href="https://github.com/Leo-Corporation/Synethia">
+    <img src=".github/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h1 align="center">Synethia</h3>
+
+  <p align="center">
+    A C# algorithm that can determine the behavior of a user with an application.
+    <br />
+    <a href="https://github.com/Leo-Corporation/Synethia/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBug%5D+">Report Bug</a>
+    ·
+    <a href="https://github.com/Leo-Corporation/Synethia/issues/new?assignees=&labels=enhancement&template=feature-request.yml&title=%5BEnhancement%5D+">Request Feature</a>
+    ·
+    <a href="https://github.com/Leo-Corporation/Synethia/issues?q=is%3Aopen+is%3Aissue+label%3Abug">Known Issues</a>
+
+  </p>
+</p>
 
 ## Features
 - [x] Detects how long the user is using which part of an app. (like a page)
