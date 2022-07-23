@@ -24,8 +24,8 @@ SOFTWARE.
 using Synethia.App.Pages;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Media;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Synethia.App.Classes;
 public static class Global

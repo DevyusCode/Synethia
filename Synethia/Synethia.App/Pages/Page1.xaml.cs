@@ -22,11 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Classes;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Synethia.App.Pages;
 /// <summary>
@@ -43,7 +40,7 @@ public partial class Page1 : Page
 	public Page1()
 	{
 		InitializeComponent();
-		Loaded += (o, e) => 
+		Loaded += (o, e) =>
 		{
 			if (!code)
 			{
@@ -62,11 +59,11 @@ public partial class Page1 : Page
 
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
-		MessageBox.Show("You clicked Button 1!");		
+		MessageBox.Show("You clicked Button 1!");
 	}
 
 	private void Btn2_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show("You clicked Button 2!");
-	}	
+	}
 }
