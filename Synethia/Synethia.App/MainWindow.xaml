@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Synethia.App"
 		mc:Ignorable="d"
-		Title="Synethia | Demo" MinHeight="450" MinWidth="800" Icon="./Synethia.png">
+		Title="Synethia | Demo" MinHeight="450" MinWidth="800" Height="450" Width="800" Icon="./Synethia.png">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
@@ -15,10 +15,10 @@
 		<StackPanel VerticalAlignment="Center">
 			<ToggleButton x:Name="DashboardBtn" Click="DashboardBtn_Click" Content="Dashboard" Padding="10" Margin="5" FontWeight="Bold"/>
 			<ToggleButton x:Name="Page1Btn" Click="Page1Btn_Click" Content="Page1" Padding="10" Margin="5" FontWeight="Bold"/>
-            <ToggleButton x:Name="Page2Btn" Click="Page2Btn_Click" Content="Page2" Padding="10" Margin="5" FontWeight="Bold"/>
+			<ToggleButton x:Name="Page2Btn" Click="Page2Btn_Click" Content="Page2" Padding="10" Margin="5" FontWeight="Bold"/>
 			<ToggleButton x:Name="Page3Btn" Click="Page3Btn_Click" Content="Page3" Padding="10" Margin="5" FontWeight="Bold"/>
 		</StackPanel>
 
-        <Frame x:Name="ContentFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
-    </Grid>
+		<Frame x:Name="ContentFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+	</Grid>
 </Window>
