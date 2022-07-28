@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Synethia.App"
 		mc:Ignorable="d"
-		Title="Synethia | Demo" Height="450" Width="800" Icon="./Synethia.png">
+		Title="Synethia | Demo" MinHeight="450" MinWidth="800" Icon="./Synethia.png">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
