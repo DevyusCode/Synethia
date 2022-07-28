@@ -49,11 +49,16 @@ public partial class DashboardPage : Page
 			$"Number of interaction(s): {Global.Page2.TotalInteractionCount}\n" +
 			$"Synethia Score: {Global.Page2.TotalTime * (Global.Page2.TotalInteractionCount > 0 ? Global.Page2.TotalInteractionCount / 2d : 1d)}";
 
+		Page3ScoreTxt.Text = $"Total time spent: {Global.Page3.TotalTime}\n" +
+			$"Number of interaction(s): {Global.Page3.TotalInteractionCount}\n" +
+			$"Synethia Score: {Global.Page3.TotalTime * (Global.Page3.TotalInteractionCount > 0 ? Global.Page3.TotalInteractionCount / 2d : 1d)}";
+
 
 		// Recommanded page section
 		Dictionary<AppPages, double> appScores = new();
 		appScores.Add(AppPages.Page1, Global.Page1.TotalTime * (Global.Page1.TotalInteractionCount > 0 ? Global.Page1.TotalInteractionCount / 2d : 1d));
 		appScores.Add(AppPages.Page2, Global.Page2.TotalTime * (Global.Page2.TotalInteractionCount > 0 ? Global.Page2.TotalInteractionCount / 2d : 1d));
+		appScores.Add(AppPages.Page3, Global.Page3.TotalTime * (Global.Page3.TotalInteractionCount > 0 ? Global.Page3.TotalInteractionCount / 2d : 1d));
 
 		// Sort by score
 		var sorted = appScores.OrderByDescending(x => x.Value);

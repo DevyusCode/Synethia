@@ -33,6 +33,7 @@ public static class Global
 	public static DashboardPage DashboardPage { get; set; }
 	public static Page1 Page1 { get; set; }
 	public static Page2 Page2 { get; set; }
+	public static Page3 Page3 { get; set; }
 
 	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
 	{
