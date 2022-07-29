@@ -7,7 +7,7 @@
   <h1 align="center">Synethia</h3>
 
   <p align="center">
-    A C# algorithm that can determine the behavior of a user with an application.
+    A basic C# algorithm that can determine the behavior of a user with an application.
     <br />
     <a href="https://github.com/Leo-Corporation/Synethia/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBug%5D+">Report Bug</a>
     ·
