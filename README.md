@@ -51,5 +51,16 @@ graph TD
     p2-->G
     p3-->G
 ~~~
+## Contribute
+To contribute to the project, you'll need:
+- Visual Studio 2022 v17.0 or higher
+  - .NET Desktop Development
+  - Git
+- .NET 6
+- (*optional*) Inno Setup v6.1 or higher
+
+
+[Click here](https://github.com/Leo-Corporation/ColorPicker/blob/main/CONTRIBUTING.md) to see the full guidelines.
+
 ## License
 This project is under the [MIT License](https://github.com/Leo-Corporation/Synethia/blob/main/LICENSE).
