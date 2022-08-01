@@ -6,6 +6,14 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Leo-Corporation/Synethia)
 
 <br />
+
+<center>
+
+### ⚠️ This is a work in progress. ⚠️
+</center>
+
+
+<br />
 <p align="center">
   <a href="https://github.com/Leo-Corporation/Synethia">
     <img src=".github/images/logo.png" alt="Logo" width="80" height="80">
@@ -29,6 +37,8 @@
 - [x] Detects how long the user is using which part of an app. (like a page)
 - [x] Detects how many interactions the user has with an app. (like clicking on a button)
 - [x] Calculates and associates a score to each page/part of the app depending on the two factors above.
+
+More features are coming soon.
 
 ## Score
 Synethia attributes a score to each page/part of the app depending on the following two factors:
