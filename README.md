@@ -23,6 +23,18 @@
 - [x] Detects how many interactions the user has with an app. (like clicking on a button)
 - [x] Calculates and associates a score to each page/part of the app depending on the two factors above.
 
+## Score
+Synethia attributes a score to each page/part of the app depending on the following two factors:
+- The time the user is using the page.
+- The number of interactions the user has with the page.
+
+The score is calculated using the following formula:
+$$
+score = totalTime * ({interactions \over 2})
+$$
+
+> **Note** This formula can change/evolve in upcoming releases.
+
 ## Graph
 ~~~ mermaid
 graph TD
@@ -57,7 +69,6 @@ To contribute to the project, you'll need:
   - .NET Desktop Development
   - Git
 - .NET 6
-- (*optional*) Inno Setup v6.1 or higher
 
 
 [Click here](https://github.com/Leo-Corporation/ColorPicker/blob/main/CONTRIBUTING.md) to see the full guidelines.
