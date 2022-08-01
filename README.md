@@ -45,6 +45,7 @@ Synethia attributes a score to each page/part of the app depending on the follow
 - The number of interactions the user has with the page.
 
 The score is calculated using the following formula:
+
 $$
 score = totalTime * ({interactions \over 2})
 $$
