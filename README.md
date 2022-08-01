@@ -1,3 +1,10 @@
+![GitHub contributors](https://img.shields.io/github/contributors/Leo-Corporation/Synethia)
+![GitHub issues](https://img.shields.io/github/issues/Leo-Corporation/Synethia)
+![GitHub](https://img.shields.io/github/license/Leo-Corporation/Synethia)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Leo-Corporation/Synethia/.NET%20Desktop)
+![Using LeoCorpLibrary](https://img.shields.io/badge/using-LeoCorpLibrary-blue)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Leo-Corporation/Synethia)
+
 <br />
 <p align="center">
   <a href="https://github.com/Leo-Corporation/Synethia">
