@@ -1,0 +1,14 @@
+{
+    "**/*.cs": [
+        "/*",
+        "MIT License",
+        "",
+        "Copyright (c) Léo Corporation"
+    ],
+    "ignore": [
+        "**/*.Designer.cs",
+        "Synethia/Synethia.App/Properties/",
+        "Synethia/Synethia.App/Ressources/",
+        "AssemblyInfo.cs"
+    ]
+}
