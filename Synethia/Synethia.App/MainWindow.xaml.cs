@@ -114,4 +114,9 @@ public partial class MainWindow : Window
 		ContentFrame.Navigate(Global.Page3); // Show the corresponding page
 		Global.SynethiaConfig.Page3Info.EnterUnixTime = Env.UnixTime;
 	}
+
+	private void Window_Closed(object sender, System.EventArgs e)
+	{
+		SynethiaManager.Save(Global.SynethiaConfig);
+	}
 }
