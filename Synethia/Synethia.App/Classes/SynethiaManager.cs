@@ -22,33 +22,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using LeoCorpLibrary;
-using Synethia.App.Pages;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Windows;
-using System.Windows.Media;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Synethia.App.Classes;
-public static class Global
+public static class SynethiaManager
 {
-	public static DashboardPage DashboardPage { get; set; }
-	public static Page1 Page1 { get; set; }
-	public static Page2 Page2 { get; set; }
-	public static Page3 Page3 { get; set; }
-
-	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load();
-
-	internal static string SynethiaPath => $@"{Env.AppDataPath}\Léo Corporation\Synethia\SynethiaConfig.json";
-
-	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+	public static SynethiaConfig Load()
 	{
-		if (depObj == null) yield return (T)Enumerable.Empty<T>();
-		for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+		if (!Directory.Exists($@"{Env.AppDataPath}\Léo Corporation\Synethia\"))
 		{
-			DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
-			if (ithChild == null) continue;
-			if (ithChild is T t) yield return t;
-			foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+			Directory.CreateDirectory($@"{Env.AppDataPath}\Léo Corporation\Synethia\");
 		}
+
+		if (!File.Exists(Global.SynethiaPath)) // If no Synethia config exists
+		{
+			Global.SynethiaConfig = new();
+			string json = JsonSerializer.Serialize(Global.SynethiaConfig, new JsonSerializerOptions { WriteIndented = true });
+			File.WriteAllText(Global.SynethiaPath, json);
+			return new();
+		}
+
+		// If Synethia config exists
+		// Deserialize the file to Synethia config (using JSON)
+		return JsonSerializer.Deserialize<SynethiaConfig>(File.ReadAllText(Global.SynethiaPath)) ?? new();
+	}
+
+	public static void Save(SynethiaConfig synethiaConfig)
+	{
+		string json = JsonSerializer.Serialize(synethiaConfig, new JsonSerializerOptions { WriteIndented = true });
+		File.WriteAllText(Global.SynethiaPath, json);
 	}
 }

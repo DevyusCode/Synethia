@@ -21,34 +21,48 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using LeoCorpLibrary;
-using Synethia.App.Pages;
+using Synethia.App.Enums;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Media;
 
 namespace Synethia.App.Classes;
-public static class Global
+public class SynethiaConfig
 {
-	public static DashboardPage DashboardPage { get; set; }
-	public static Page1 Page1 { get; set; }
-	public static Page2 Page2 { get; set; }
-	public static Page3 Page3 { get; set; }
-
-	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load();
-
-	internal static string SynethiaPath => $@"{Env.AppDataPath}\Léo Corporation\Synethia\SynethiaConfig.json";
-
-	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+	public SynethiaConfig()
 	{
-		if (depObj == null) yield return (T)Enumerable.Empty<T>();
-		for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-		{
-			DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
-			if (ithChild == null) continue;
-			if (ithChild is T t) yield return t;
-			foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
-		}
+		Page1Info = new();
+		Page2Info = new();
+		Page3Info = new();
+
+		//ActionInfos = Global.DefaultRelevantActions;
 	}
+
+	public PageInfo Page1Info { get; set; }
+	public PageInfo Page2Info { get; set; }
+	public PageInfo Page3Info { get; set; }
+
+	public List<ActionInfo> ActionInfos { get; set; }
+}
+
+public class PageInfo
+{
+	public PageInfo()
+	{
+		EnterUnixTime = 0;
+		LeaveUnixTime = 0;
+		TotalTimeSpent = 0;
+		InteractionCount = 0;
+		Score = 0;
+	}
+
+	public int EnterUnixTime { get; set; }
+	public int LeaveUnixTime { get; set; }
+	public int TotalTimeSpent { get; set; }
+	public int InteractionCount { get; set; }
+	public double Score { get; set; }
+}
+
+public class ActionInfo
+{
+	public AppActions Action { get; set; }
+	public int UsageCount { get; set; }
 }

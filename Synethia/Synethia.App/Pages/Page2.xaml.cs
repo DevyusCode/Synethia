@@ -31,10 +31,6 @@ namespace Synethia.App.Pages;
 /// </summary>
 public partial class Page2 : Page
 {
-	internal int EnterUnixTime { get; set; }
-	internal int ExitUnixTime { get; set; }
-	internal int TotalTime { get; set; } = 0;
-	internal int TotalInteractionCount { get; set; }
 
 	bool code = false;
 	public Page2()
@@ -50,7 +46,7 @@ public partial class Page2 : Page
 				{
 					b.Click += (sender, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page2Info.InteractionCount++;
 					};
 				}
 
@@ -59,7 +55,7 @@ public partial class Page2 : Page
 				{
 					textBox.GotFocus += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page2Info.InteractionCount++;
 					};
 				}
 			}

@@ -31,11 +31,6 @@ namespace Synethia.App.Pages;
 /// </summary>
 public partial class Page1 : Page
 {
-	internal int EnterUnixTime { get; set; }
-	internal int ExitUnixTime { get; set; }
-	internal int TotalTime { get; set; } = 0;
-	internal int TotalInteractionCount { get; set; }
-
 	bool code = false;
 	public Page1()
 	{
@@ -50,7 +45,7 @@ public partial class Page1 : Page
 				{
 					b.Click += (sender, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page1Info.InteractionCount++;
 					};
 				}
 			}

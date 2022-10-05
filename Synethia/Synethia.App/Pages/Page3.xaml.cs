@@ -31,10 +31,6 @@ namespace Synethia.App.Pages;
 /// </summary>
 public partial class Page3 : Page
 {
-	internal int EnterUnixTime { get; set; }
-	internal int ExitUnixTime { get; set; }
-	internal int TotalTime { get; set; } = 0;
-	internal int TotalInteractionCount { get; set; }
 
 	bool code = false;
 	public Page3()
@@ -50,7 +46,7 @@ public partial class Page3 : Page
 				{
 					b.Click += (sender, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 				}
 
@@ -59,7 +55,7 @@ public partial class Page3 : Page
 				{
 					textBox.GotFocus += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 				}
 
@@ -68,11 +64,11 @@ public partial class Page3 : Page
 				{
 					checkBox.Checked += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 					checkBox.Unchecked += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 				}
 
@@ -80,11 +76,11 @@ public partial class Page3 : Page
 				{
 					radioButton.Checked += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 					radioButton.Unchecked += (o, e) =>
 					{
-						TotalInteractionCount++;
+						Global.SynethiaConfig.Page3Info.InteractionCount++;
 					};
 				}
 			}
