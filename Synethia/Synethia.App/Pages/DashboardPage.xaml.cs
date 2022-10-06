@@ -65,6 +65,7 @@ public partial class DashboardPage : Page
 
 		// Display to the user (RecommandedTxt)
 		RecommandedTxt.Text = ""; // Clear text
+		RecommandedActionsTxt.Text = ""; // Clear text
 		int c = 0;
 		foreach (var item in sorted)
 		{
