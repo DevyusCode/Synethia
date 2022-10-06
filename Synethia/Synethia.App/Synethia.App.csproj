@@ -6,10 +6,23 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <PackageIcon>Synethia.png</PackageIcon>
+    <Version>1.0.0.2210</Version>
+    <Company>Léo Corporation</Company>
+    <Authors>Léo Corporation</Authors>
+    <PackageProjectUrl>https://github.com/Leo-Corporation/Synethia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Leo-Corporation/Synethia</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>© 2022</Copyright>
+    <Title>Synethia</Title>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Synethia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
