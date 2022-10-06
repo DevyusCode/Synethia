@@ -55,6 +55,7 @@ public partial class Page1 : Page
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show("You clicked Button 1!");
+		Global.SynethiaConfig.Actions[0].UsageCount++;
 	}
 
 	private void Btn2_Click(object sender, RoutedEventArgs e)

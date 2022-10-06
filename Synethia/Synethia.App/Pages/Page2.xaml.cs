@@ -65,6 +65,7 @@ public partial class Page2 : Page
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		TextBox1.Text = "Click";
+		Global.SynethiaConfig.Actions[1].UsageCount++;
 	}
 
 	private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)

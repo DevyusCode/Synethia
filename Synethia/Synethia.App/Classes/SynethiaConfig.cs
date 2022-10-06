@@ -33,14 +33,14 @@ public class SynethiaConfig
 		Page2Info = new();
 		Page3Info = new();
 
-		//ActionInfos = Global.DefaultRelevantActions;
+		Actions = Global.DefaultRelevantActions;
 	}
 
 	public PageInfo Page1Info { get; set; }
 	public PageInfo Page2Info { get; set; }
 	public PageInfo Page3Info { get; set; }
 
-	public List<ActionInfo> ActionInfos { get; set; }
+	public List<Action> Actions { get; set; }
 }
 
 public class PageInfo
@@ -61,8 +61,16 @@ public class PageInfo
 	public double Score { get; set; }
 }
 
-public class ActionInfo
+public class Action
 {
-	public AppActions Action { get; set; }
+	public int Id { get; init; }
 	public int UsageCount { get; set; }
+	public string Name { get; init; }
+
+	public Action(int id, int usage, string name)
+	{
+		Id = id;
+		UsageCount = usage;
+		Name = name;
+	}
 }

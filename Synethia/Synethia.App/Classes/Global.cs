@@ -36,6 +36,13 @@ public static class Global
 	public static Page2 Page2 { get; set; }
 	public static Page3 Page3 { get; set; }
 
+	public static List<Action> DefaultRelevantActions => new()
+	{
+		new(0, 0, "Page1.Button1"),
+		new(1, 0, "Page2.Button1"),
+		new(2, 0, "Page3.Button1")
+	};
+
 	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load();
 
 	internal static string SynethiaPath => $@"{Env.AppDataPath}\Léo Corporation\Synethia\SynethiaConfig.json";

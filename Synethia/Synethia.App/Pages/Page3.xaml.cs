@@ -100,6 +100,7 @@ public partial class Page3 : Page
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show("Hello!");
+		Global.SynethiaConfig.Actions[2].UsageCount++;
 	}
 
 	private void Btn2_Click(object sender, RoutedEventArgs e)
