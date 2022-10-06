@@ -71,5 +71,16 @@ public partial class DashboardPage : Page
 			c++;
 			RecommandedTxt.Text += $"#{c} - {item.Key} - {item.Value}\n";
 		}
+
+		// Actions
+		// Sort by score
+		var sortedActions = Global.SynethiaConfig.Actions.OrderByDescending(x => x.UsageCount);
+
+		c = 0;
+		foreach (var action in sortedActions)
+		{
+			c++;
+			RecommandedActionsTxt.Text += $"#{c} - {action.Name} - {action.UsageCount}\n";
+		}
 	}
 }

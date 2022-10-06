@@ -21,7 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using Synethia.App.Enums;
 using System.Collections.Generic;
 
 namespace Synethia.App.Classes;
@@ -67,10 +66,11 @@ public class Action
 	public int UsageCount { get; set; }
 	public string Name { get; init; }
 
-	public Action(int id, int usage, string name)
+
+	public Action(int id, int usageCount, string name)
 	{
 		Id = id;
-		UsageCount = usage;
+		UsageCount = usageCount;
 		Name = name;
 	}
 }
