@@ -6,12 +6,6 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Leo-Corporation/Synethia)
 
 <br />
-
-<h3 align="center"> 
-⚠️ This is a work in progress. ⚠️
-</h3>
-
-
 <br />
 <p align="center">
   <a href="https://github.com/Leo-Corporation/Synethia">
