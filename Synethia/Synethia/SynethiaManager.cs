@@ -31,8 +31,17 @@ using System.Windows.Media;
 
 namespace Synethia
 {
+	/// <summary>
+	/// The class containing all the methods to work with Synethia.
+	/// </summary>
 	public static class SynethiaManager
 	{
+		/// <summary>
+		/// Loads a Synethia JSON config file stored in a specified location. Falls back to a default config if none is found.
+		/// </summary>
+		/// <param name="path">The location of the Synthia JSON file.</param>
+		/// <param name="defaultConfig">The fallback Synethia configuration.</param>
+		/// <returns>The <see cref="SynethiaConfig"/> stored in the specified JSON file.</returns>
 		public static SynethiaConfig Load(string path, SynethiaConfig defaultConfig)
 		{
 			if (!Directory.Exists(Path.GetDirectoryName(path))) Directory.CreateDirectory(Path.GetDirectoryName(path));
@@ -50,12 +59,25 @@ namespace Synethia
 
 		}
 
+		/// <summary>
+		/// Saves the specified <see cref="SynethiaConfig"/> to a Synethia JSON file at a specfied location.
+		/// </summary>
+		/// <param name="synethiaConfig">The <see cref="SynethiaConfig"/> to save.</param>
+		/// <param name="path">The location where the file is going to be written.</param>
 		public static void Save(SynethiaConfig synethiaConfig, string path)
 		{
 			string json = JsonSerializer.Serialize(synethiaConfig, new JsonSerializerOptions { WriteIndented = true });
 			File.WriteAllText(path, json);
 		}
 
+		/// <summary>
+		/// Injects Synethia triggers and event handler to a page, so that Synethia can start monitoring user activity.
+		/// </summary>
+		/// <remarks>This method should be injected in the <see cref="Page"/> constructor.</remarks>
+		/// <param name="page">The page where the code needs to be injected.</param>
+		/// <param name="pageInfo">The list of all the <see cref="PageInfo"/>.</param>
+		/// <param name="index">The index of the corresponding <see cref="PageInfo"/> of the specified <paramref name="page"/> in the <paramref name="pageInfo"/> list.</param>
+		/// <param name="codeInjected">Assuming this code is injected in the constructor, this parameter is used to stop the method if the code is already injected.</param>
 		public static void InjectSynethiaCode(Page page, List<PageInfo> pageInfo, int index, ref bool codeInjected)
 		{
 			PageInfo info = pageInfo[index];

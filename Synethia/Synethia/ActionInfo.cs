@@ -24,14 +24,32 @@ SOFTWARE.
 
 namespace Synethia
 {
+	/// <summary>
+	/// Class that can be used to contains information about a specific interaction or action.
+	/// </summary>
 	public class ActionInfo
 	{
+		/// <summary>
+		/// The identifier number for the action.
+		/// </summary>
 		public int Id { get; init; }
+
+		/// <summary>
+		/// The number of time the action has been used.
+		/// </summary>
 		public int UsageCount { get; set; }
+
+		/// <summary>
+		/// The action name.
+		/// </summary>
 		public string Name { get; init; }
 
-
-		public ActionInfo(int id, int usageCount, string name)
+		/// <summary>
+		/// Intializes an action.
+		/// </summary>
+		/// <param name="id">The action ID.</param>
+		/// <param name="name">The action name</param>
+		/// <param name="usageCount">The default usage count. (0 by default)</param>
 		public ActionInfo(int id, string name, int usageCount = 0)
 		{
 			Id = id;

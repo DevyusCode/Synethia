@@ -25,11 +25,24 @@ using System.Collections.Generic;
 
 namespace Synethia
 {
+	/// <summary>
+	/// The global Synethia config that will store all the collected data.
+	/// </summary>
 	public class SynethiaConfig
 	{
+		/// <summary>
+		/// All the data about the interactions and the time spent on each page.
+		/// </summary>
 		public List<PageInfo> PagesInfo { get; set; }
+
+		/// <summary>
+		/// All the data about the specific actions the user used.
+		/// </summary>
 		public List<ActionInfo> ActionsInfo { get; set; }
 
+		/// <summary>
+		/// Initializes a new empty config.
+		/// </summary>
 		public SynethiaConfig()
 		{
 			PagesInfo = new();

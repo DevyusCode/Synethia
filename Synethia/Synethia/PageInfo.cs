@@ -24,15 +24,45 @@ SOFTWARE.
 
 namespace Synethia
 {
+	/// <summary>
+	/// Class that contain information about the interactions, the usage of a specific page.
+	/// </summary>
 	public class PageInfo
 	{
+		/// <summary>
+		/// The name of the page.
+		/// </summary>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// The time the user entered the page, stored using UnixTime.
+		/// </summary>
 		public int EnterUnixTime { get; set; }
+
+		/// <summary>
+		/// The time the user left the page, stored using UnixTime.
+		/// </summary>
 		public int LeaveUnixTime { get; set; }
+
+		/// <summary>
+		/// The total time spent by the user on that page.
+		/// </summary>
 		public int TotalTimeSpent { get; set; }
+
+		/// <summary>
+		/// The number of global interactions the user made. Can be button clicks, text input, checkboxed or radiobuttons.
+		/// </summary>
 		public int InteractionCount { get; set; }
+
+		/// <summary>
+		/// The Synethia score of the page.
+		/// </summary>
 		public double Score => TotalTimeSpent * (InteractionCount > 0 ? InteractionCount / 2d : 1d);
 
+		/// <summary>
+		/// Initializes this class with a specified name.
+		/// </summary>
+		/// <param name="name">The name of the page.</param>
 		public PageInfo(string name)
 		{
 			Name = name;
