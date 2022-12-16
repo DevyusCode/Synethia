@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LeoCorpLibrary" Version="4.8.0.2207" />
+    <PackageReference Include="PeyrSharp" Version="1.1.0.2212" />
     <PackageReference Include="Synethia" Version="1.0.0.2212" />
   </ItemGroup>
 
