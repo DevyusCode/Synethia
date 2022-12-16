@@ -43,9 +43,9 @@ public static class Global
 	{
 		PagesInfo = new List<Synethia.PageInfo>()
 		{
-			new(),
-			new(),
-			new()
+			new("Page1"),
+			new("Page2"),
+			new("Page3")
 		},
 		ActionsInfo = new()
 		{

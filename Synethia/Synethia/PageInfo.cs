@@ -31,10 +31,16 @@ namespace Synethia
 {
 	public class PageInfo
 	{
+		public string Name { get; set; }
 		public int EnterUnixTime { get; set; }
 		public int LeaveUnixTime { get; set; }
 		public int TotalTimeSpent { get; set; }
 		public int InteractionCount { get; set; }
 		public double Score => TotalTimeSpent * (InteractionCount > 0 ? InteractionCount / 2d : 1d);
+
+		public PageInfo(string name)
+		{
+			Name = name;
+		}
 	}
 }
