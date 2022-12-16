@@ -30,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Synethia\Synethia.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Synethia.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

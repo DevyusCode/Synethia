@@ -21,8 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using LeoCorpLibrary;
 using Synethia.App.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -31,21 +31,37 @@ using System.Windows.Media;
 namespace Synethia.App.Classes;
 public static class Global
 {
-	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load();
+	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load(SynethiaPath, Default);
 
 	public static DashboardPage DashboardPage { get; set; } = new();
 	public static Page1? Page1 { get; set; }
 	public static Page2? Page2 { get; set; }
 	public static Page3? Page3 { get; set; }
 
-	public static List<Action> DefaultRelevantActions => new()
+	public static SynethiaConfig Default => new()
 	{
-		new(0, 0, "Page1.Button1"),
-		new(1, 0, "Page2.Button1"),
-		new(2, 0, "Page3.Button1")
+		PagesInfo = new List<PageInfo>()
+		{
+			new("Page1"),
+			new("Page2"),
+			new("Page3")
+		},
+		ActionsInfo = new()
+		{
+			new(0, "Page1.Button1"),
+			new(1, "Page2.Button1"),
+			new(2, "Page3.Button1")
+		}
 	};
 
-	internal static string SynethiaPath => $@"{Env.AppDataPath}\Léo Corporation\Synethia\SynethiaConfig.json";
+	public static List<ActionInfo> DefaultRelevantActions => new()
+	{
+		new(0, "Page1.Button1"),
+		new(1, "Page2.Button1"),
+		new(2, "Page3.Button1")
+	};
+
+	internal static string SynethiaPath => $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Léo Corporation\Synethia\SynethiaConfig.json";
 
 	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
 	{

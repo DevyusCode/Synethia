@@ -21,36 +21,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using LeoCorpLibrary;
-using System.IO;
-using System.Text.Json;
+using System.Collections.Generic;
 
-namespace Synethia.App.Classes;
-public static class SynethiaManager
+namespace Synethia
 {
-	public static SynethiaConfig Load()
+	/// <summary>
+	/// The global Synethia config that will store all the collected data.
+	/// </summary>
+	public class SynethiaConfig
 	{
-		if (!Directory.Exists($@"{Env.AppDataPath}\Léo Corporation\Synethia\"))
+		/// <summary>
+		/// All the data about the interactions and the time spent on each page.
+		/// </summary>
+		public List<PageInfo> PagesInfo { get; set; }
+
+		/// <summary>
+		/// All the data about the specific actions the user used.
+		/// </summary>
+		public List<ActionInfo> ActionsInfo { get; set; }
+
+		/// <summary>
+		/// Initializes a new empty config.
+		/// </summary>
+		public SynethiaConfig()
 		{
-			Directory.CreateDirectory($@"{Env.AppDataPath}\Léo Corporation\Synethia\");
+			PagesInfo = new();
+			ActionsInfo = new();
 		}
-
-		if (!File.Exists(Global.SynethiaPath)) // If no Synethia config exists
-		{
-			Global.SynethiaConfig = new();
-			string json = JsonSerializer.Serialize(Global.SynethiaConfig, new JsonSerializerOptions { WriteIndented = true });
-			File.WriteAllText(Global.SynethiaPath, json);
-			return new();
-		}
-
-		// If Synethia config exists
-		// Deserialize the file to Synethia config (using JSON)
-		return JsonSerializer.Deserialize<SynethiaConfig>(File.ReadAllText(Global.SynethiaPath)) ?? new();
-	}
-
-	public static void Save(SynethiaConfig synethiaConfig)
-	{
-		string json = JsonSerializer.Serialize(synethiaConfig, new JsonSerializerOptions { WriteIndented = true });
-		File.WriteAllText(Global.SynethiaPath, json);
 	}
 }

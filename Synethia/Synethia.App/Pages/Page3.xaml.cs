@@ -36,55 +36,8 @@ public partial class Page3 : Page
 	public Page3()
 	{
 		InitializeComponent();
-		Loaded += (o, e) =>
-		{
-			if (!code)
-			{
-				code = true;
-				// For each button of the page
-				foreach (Button b in Global.FindVisualChildren<Button>(this))
-				{
-					b.Click += (sender, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-				}
+		SynethiaManager.InjectSynethiaCode(this, Global.SynethiaConfig.PagesInfo, 2, ref code);
 
-				// For each TextBox of the page
-				foreach (TextBox textBox in Global.FindVisualChildren<TextBox>(this))
-				{
-					textBox.GotFocus += (o, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-				}
-
-				// For each CheckBox/RadioButton of the page
-				foreach (CheckBox checkBox in Global.FindVisualChildren<CheckBox>(this))
-				{
-					checkBox.Checked += (o, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-					checkBox.Unchecked += (o, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-				}
-
-				foreach (RadioButton radioButton in Global.FindVisualChildren<RadioButton>(this))
-				{
-					radioButton.Checked += (o, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-					radioButton.Unchecked += (o, e) =>
-					{
-						Global.SynethiaConfig.Page3Info.InteractionCount++;
-					};
-				}
-			}
-		};
 	}
 
 	private void Check1_Checked(object sender, RoutedEventArgs e)
@@ -100,7 +53,7 @@ public partial class Page3 : Page
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show("Hello!");
-		Global.SynethiaConfig.Actions[2].UsageCount++;
+		Global.SynethiaConfig.ActionsInfo[2].UsageCount++;
 	}
 
 	private void Btn2_Click(object sender, RoutedEventArgs e)

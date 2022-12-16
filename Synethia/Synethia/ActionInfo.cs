@@ -21,56 +21,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System.Collections.Generic;
 
-namespace Synethia.App.Classes;
-public class SynethiaConfig
+namespace Synethia
 {
-	public SynethiaConfig()
+	/// <summary>
+	/// Class that can be used to contains information about a specific interaction or action.
+	/// </summary>
+	public class ActionInfo
 	{
-		Page1Info = new();
-		Page2Info = new();
-		Page3Info = new();
+		/// <summary>
+		/// The identifier number for the action.
+		/// </summary>
+		public int Id { get; init; }
 
-		Actions = Global.DefaultRelevantActions;
-	}
+		/// <summary>
+		/// The number of time the action has been used.
+		/// </summary>
+		public int UsageCount { get; set; }
 
-	public PageInfo Page1Info { get; set; }
-	public PageInfo Page2Info { get; set; }
-	public PageInfo Page3Info { get; set; }
+		/// <summary>
+		/// The action name.
+		/// </summary>
+		public string Name { get; init; }
 
-	public List<Action> Actions { get; set; }
-}
-
-public class PageInfo
-{
-	public PageInfo()
-	{
-		EnterUnixTime = 0;
-		LeaveUnixTime = 0;
-		TotalTimeSpent = 0;
-		InteractionCount = 0;
-		Score = 0;
-	}
-
-	public int EnterUnixTime { get; set; }
-	public int LeaveUnixTime { get; set; }
-	public int TotalTimeSpent { get; set; }
-	public int InteractionCount { get; set; }
-	public double Score { get; set; }
-}
-
-public class Action
-{
-	public int Id { get; init; }
-	public int UsageCount { get; set; }
-	public string Name { get; init; }
-
-
-	public Action(int id, int usageCount, string name)
-	{
-		Id = id;
-		UsageCount = usageCount;
-		Name = name;
+		/// <summary>
+		/// Intializes an action.
+		/// </summary>
+		/// <param name="id">The action ID.</param>
+		/// <param name="name">The action name</param>
+		/// <param name="usageCount">The default usage count. (0 by default)</param>
+		public ActionInfo(int id, string name, int usageCount = 0)
+		{
+			Id = id;
+			UsageCount = usageCount;
+			Name = name;
+		}
 	}
 }
