@@ -32,6 +32,7 @@ namespace Synethia
 
 
 		public ActionInfo(int id, int usageCount, string name)
+		public ActionInfo(int id, string name, int usageCount = 0)
 		{
 			Id = id;
 			UsageCount = usageCount;

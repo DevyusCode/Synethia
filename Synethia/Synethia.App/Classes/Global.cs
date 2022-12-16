@@ -48,17 +48,17 @@ public static class Global
 		},
 		ActionsInfo = new()
 		{
-			new(0, 0, "Page1.Button1"),
-			new(1, 0, "Page2.Button1"),
-			new(2, 0, "Page3.Button1")
+			new(0, "Page1.Button1"),
+			new(1, "Page2.Button1"),
+			new(2, "Page3.Button1")
 		}
 	};
 
 	public static List<ActionInfo> DefaultRelevantActions => new()
 	{
-		new(0, 0, "Page1.Button1"),
-		new(1, 0, "Page2.Button1"),
-		new(2, 0, "Page3.Button1")
+		new(0, "Page1.Button1"),
+		new(1, "Page2.Button1"),
+		new(2, "Page3.Button1")
 	};
 
 	internal static string SynethiaPath => $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Léo Corporation\Synethia\SynethiaConfig.json";
