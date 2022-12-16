@@ -21,7 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using LeoCorpLibrary;
 using Synethia.App.Pages;
 using System;
 using System.Collections.Generic;
@@ -32,16 +31,16 @@ using System.Windows.Media;
 namespace Synethia.App.Classes;
 public static class Global
 {
-	public static Synethia.SynethiaConfig SynethiaConfig { get; set; } = Synethia.SynethiaManager.Load(SynethiaPath, Default);
+	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load(SynethiaPath, Default);
 
 	public static DashboardPage DashboardPage { get; set; } = new();
 	public static Page1? Page1 { get; set; }
 	public static Page2? Page2 { get; set; }
 	public static Page3? Page3 { get; set; }
 
-	public static Synethia.SynethiaConfig Default => new()
+	public static SynethiaConfig Default => new()
 	{
-		PagesInfo = new List<Synethia.PageInfo>()
+		PagesInfo = new List<PageInfo>()
 		{
 			new("Page1"),
 			new("Page2"),
