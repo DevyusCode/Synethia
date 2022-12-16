@@ -57,9 +57,11 @@ namespace Synethia
 			File.WriteAllText(path, json);
 		}
 
-		public static void InjectSynethiaCode(Page page, ref PageInfo pageInfo, bool code)
+		public static void InjectSynethiaCode(Page page, ref PageInfo pageInfo, ref bool codeInjected)
 		{
 			PageInfo info = pageInfo;
+			bool code = codeInjected;
+
 			page.Loaded += (o, e) =>
 			{
 				if (!code)
@@ -111,6 +113,7 @@ namespace Synethia
 			};
 
 			pageInfo = info;
+			codeInjected = true;
 		}
 
 		private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
