@@ -36,19 +36,21 @@ namespace Synethia
 {
 	public static class SynethiaManager
 	{
-		public static SynethiaConfig Load(string path)
+		public static SynethiaConfig Load(string path, SynethiaConfig defaultConfig)
 		{
-			SynethiaConfig config = new();
+			if (!Directory.Exists(Path.GetDirectoryName(path))) Directory.CreateDirectory(Path.GetDirectoryName(path));
+
 			if (!File.Exists(path)) // If no Synethia config exists
 			{
-				string json = JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
+				string json = JsonSerializer.Serialize(defaultConfig, new JsonSerializerOptions { WriteIndented = true });
 				File.WriteAllText(path, json);
-				return new();
+				return defaultConfig;
 			}
 
 			// If Synethia config exists
 			// Deserialize the file to Synethia config (using JSON)
-			return JsonSerializer.Deserialize<SynethiaConfig>(File.ReadAllText(path)) ?? new();
+			return JsonSerializer.Deserialize<SynethiaConfig>(File.ReadAllText(path)) ?? defaultConfig;
+
 		}
 
 		public static void Save(SynethiaConfig synethiaConfig, string path)
@@ -57,9 +59,9 @@ namespace Synethia
 			File.WriteAllText(path, json);
 		}
 
-		public static void InjectSynethiaCode(Page page, ref PageInfo pageInfo, ref bool codeInjected)
+		public static void InjectSynethiaCode(Page page, List<PageInfo> pageInfo, int index, ref bool codeInjected)
 		{
-			PageInfo info = pageInfo;
+			PageInfo info = pageInfo[index];
 			bool code = codeInjected;
 
 			page.Loaded += (o, e) =>
@@ -112,7 +114,7 @@ namespace Synethia
 				}
 			};
 
-			pageInfo = info;
+			pageInfo[index] = info;
 			codeInjected = true;
 		}
 
