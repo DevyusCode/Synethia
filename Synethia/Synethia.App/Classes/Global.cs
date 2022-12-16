@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using LeoCorpLibrary;
 using Synethia.App.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -31,21 +32,37 @@ using System.Windows.Media;
 namespace Synethia.App.Classes;
 public static class Global
 {
-	public static SynethiaConfig SynethiaConfig { get; set; } = SynethiaManager.Load();
+	public static Synethia.SynethiaConfig SynethiaConfig { get; set; } = Synethia.SynethiaManager.Load(SynethiaPath, Default);
 
 	public static DashboardPage DashboardPage { get; set; } = new();
 	public static Page1? Page1 { get; set; }
 	public static Page2? Page2 { get; set; }
 	public static Page3? Page3 { get; set; }
 
-	public static List<Action> DefaultRelevantActions => new()
+	public static Synethia.SynethiaConfig Default => new()
+	{
+		PagesInfo = new List<Synethia.PageInfo>()
+		{
+			new(),
+			new(),
+			new()
+		},
+		ActionsInfo = new()
+		{
+			new(0, 0, "Page1.Button1"),
+			new(1, 0, "Page2.Button1"),
+			new(2, 0, "Page3.Button1")
+		}
+	};
+
+	public static List<ActionInfo> DefaultRelevantActions => new()
 	{
 		new(0, 0, "Page1.Button1"),
 		new(1, 0, "Page2.Button1"),
 		new(2, 0, "Page3.Button1")
 	};
 
-	internal static string SynethiaPath => $@"{Env.AppDataPath}\Léo Corporation\Synethia\SynethiaConfig.json";
+	internal static string SynethiaPath => $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Léo Corporation\Synethia\SynethiaConfig.json";
 
 	public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
 	{

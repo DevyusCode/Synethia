@@ -41,24 +41,24 @@ public partial class DashboardPage : Page
 
 	internal void LoadData()
 	{
-		Page1ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.Page1Info.TotalTimeSpent}\n" +
-			$"Number of interaction(s): {Global.SynethiaConfig.Page1Info.InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.Page1Info.TotalTimeSpent * (Global.SynethiaConfig.Page1Info.InteractionCount > 0 ? Global.SynethiaConfig.Page1Info.InteractionCount / 2d : 1d)}";
+		Page1ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent}\n" +
+			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[0].InteractionCount}\n" +
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[0].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[0].InteractionCount / 2d : 1d)}";
 
-		Page2ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.Page2Info.TotalTimeSpent}\n" +
-			$"Number of interaction(s): {Global.SynethiaConfig.Page2Info.InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.Page2Info.TotalTimeSpent * (Global.SynethiaConfig.Page2Info.InteractionCount > 0 ? Global.SynethiaConfig.Page2Info.InteractionCount / 2d : 1d)}";
+		Page2ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent}\n" +
+			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[1].InteractionCount}\n" +
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[1].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[1].InteractionCount / 2d : 1d)}";
 
-		Page3ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.Page3Info.TotalTimeSpent}\n" +
-			$"Number of interaction(s): {Global.SynethiaConfig.Page3Info.InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.Page3Info.TotalTimeSpent * (Global.SynethiaConfig.Page3Info.InteractionCount > 0 ? Global.SynethiaConfig.Page3Info.InteractionCount / 2d : 1d)}";
+		Page3ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent}\n" +
+			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[2].InteractionCount}\n" +
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[2].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[2].InteractionCount / 2d : 1d)}";
 
 
 		// Recommanded page section
 		Dictionary<AppPages, double> appScores = new();
-		appScores.Add(AppPages.Page1, Global.SynethiaConfig.Page1Info.TotalTimeSpent * (Global.SynethiaConfig.Page1Info.InteractionCount > 0 ? Global.SynethiaConfig.Page1Info.InteractionCount / 2d : 1d));
-		appScores.Add(AppPages.Page2, Global.SynethiaConfig.Page2Info.TotalTimeSpent * (Global.SynethiaConfig.Page2Info.InteractionCount > 0 ? Global.SynethiaConfig.Page2Info.InteractionCount / 2d : 1d));
-		appScores.Add(AppPages.Page3, Global.SynethiaConfig.Page3Info.TotalTimeSpent * (Global.SynethiaConfig.Page3Info.InteractionCount > 0 ? Global.SynethiaConfig.Page3Info.InteractionCount / 2d : 1d));
+		appScores.Add(AppPages.Page1, Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[0].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[0].InteractionCount / 2d : 1d));
+		appScores.Add(AppPages.Page2, Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[1].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[1].InteractionCount / 2d : 1d));
+		appScores.Add(AppPages.Page3, Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[2].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[2].InteractionCount / 2d : 1d));
 
 		// Sort by score
 		var sorted = appScores.OrderByDescending(x => x.Value);
@@ -75,7 +75,7 @@ public partial class DashboardPage : Page
 
 		// Actions
 		// Sort by score
-		var sortedActions = Global.SynethiaConfig.Actions.OrderByDescending(x => x.UsageCount);
+		var sortedActions = Global.SynethiaConfig.ActionsInfo.OrderByDescending(x => x.UsageCount);
 
 		c = 0;
 		foreach (var action in sortedActions)

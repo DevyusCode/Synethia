@@ -56,18 +56,18 @@ public partial class MainWindow : Window
 	{
 		if (ContentFrame.Content is Page1)
 		{
-			Global.SynethiaConfig.Page1Info.LeaveUnixTime = Env.UnixTime;
-			Global.SynethiaConfig.Page1Info.TotalTimeSpent += Global.SynethiaConfig.Page1Info.LeaveUnixTime - Global.SynethiaConfig.Page1Info.EnterUnixTime;
+			Global.SynethiaConfig.PagesInfo[0].LeaveUnixTime = Env.UnixTime;
+			Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent += Global.SynethiaConfig.PagesInfo[0].LeaveUnixTime - Global.SynethiaConfig.PagesInfo[0].EnterUnixTime;
 		}
 		else if (ContentFrame.Content is Page2)
 		{
-			Global.SynethiaConfig.Page2Info.LeaveUnixTime = Env.UnixTime;
-			Global.SynethiaConfig.Page2Info.TotalTimeSpent += Global.SynethiaConfig.Page2Info.LeaveUnixTime - Global.SynethiaConfig.Page2Info.EnterUnixTime;
+			Global.SynethiaConfig.PagesInfo[1].LeaveUnixTime = Env.UnixTime;
+			Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent += Global.SynethiaConfig.PagesInfo[1].LeaveUnixTime - Global.SynethiaConfig.PagesInfo[1].EnterUnixTime;
 		}
 		else if (ContentFrame.Content is Page3)
 		{
-			Global.SynethiaConfig.Page3Info.LeaveUnixTime = Env.UnixTime;
-			Global.SynethiaConfig.Page3Info.TotalTimeSpent += Global.SynethiaConfig.Page3Info.LeaveUnixTime - Global.SynethiaConfig.Page3Info.EnterUnixTime;
+			Global.SynethiaConfig.PagesInfo[2].LeaveUnixTime = Env.UnixTime;
+			Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent += Global.SynethiaConfig.PagesInfo[2].LeaveUnixTime - Global.SynethiaConfig.PagesInfo[2].EnterUnixTime;
 		}
 	}
 
@@ -90,7 +90,7 @@ public partial class MainWindow : Window
 		Page1Btn.IsChecked = true;
 
 		ContentFrame.Navigate(Global.Page1); // Show the corresponding page
-		Global.SynethiaConfig.Page1Info.EnterUnixTime = Env.UnixTime;
+		Global.SynethiaConfig.PagesInfo[0].EnterUnixTime = Env.UnixTime;
 	}
 
 	private void Page2Btn_Click(object sender, RoutedEventArgs e)
@@ -101,7 +101,7 @@ public partial class MainWindow : Window
 		Page2Btn.IsChecked = true;
 
 		ContentFrame.Navigate(Global.Page2); // Show the corresponding page
-		Global.SynethiaConfig.Page2Info.EnterUnixTime = Env.UnixTime;
+		Global.SynethiaConfig.PagesInfo[1].EnterUnixTime = Env.UnixTime;
 	}
 
 	private void Page3Btn_Click(object sender, RoutedEventArgs e)
@@ -112,11 +112,11 @@ public partial class MainWindow : Window
 		Page3Btn.IsChecked = true;
 
 		ContentFrame.Navigate(Global.Page3); // Show the corresponding page
-		Global.SynethiaConfig.Page3Info.EnterUnixTime = Env.UnixTime;
+		Global.SynethiaConfig.PagesInfo[2].EnterUnixTime = Env.UnixTime;
 	}
 
 	private void Window_Closed(object sender, System.EventArgs e)
 	{
-		SynethiaManager.Save(Global.SynethiaConfig);
+		SynethiaManager.Save(Global.SynethiaConfig, Global.SynethiaPath);
 	}
 }

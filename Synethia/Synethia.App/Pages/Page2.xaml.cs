@@ -36,36 +36,13 @@ public partial class Page2 : Page
 	public Page2()
 	{
 		InitializeComponent();
-		Loaded += (o, e) =>
-		{
-			if (!code)
-			{
-				code = true;
-				// For each button of the page
-				foreach (Button b in Global.FindVisualChildren<Button>(this))
-				{
-					b.Click += (sender, e) =>
-					{
-						Global.SynethiaConfig.Page2Info.InteractionCount++;
-					};
-				}
-
-				// For each TextBox of the page
-				foreach (TextBox textBox in Global.FindVisualChildren<TextBox>(this))
-				{
-					textBox.GotFocus += (o, e) =>
-					{
-						Global.SynethiaConfig.Page2Info.InteractionCount++;
-					};
-				}
-			}
-		};
+		SynethiaManager.InjectSynethiaCode(this, Global.SynethiaConfig.PagesInfo, 1, ref code);
 	}
 
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		TextBox1.Text = "Click";
-		Global.SynethiaConfig.Actions[1].UsageCount++;
+		Global.SynethiaConfig.ActionsInfo[1].UsageCount++;
 	}
 
 	private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)

@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Synethia.App.Classes;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,27 +36,13 @@ public partial class Page1 : Page
 	public Page1()
 	{
 		InitializeComponent();
-		Loaded += (o, e) =>
-		{
-			if (!code)
-			{
-				code = true;
-				// For each button of the page
-				foreach (Button b in Global.FindVisualChildren<Button>(this))
-				{
-					b.Click += (sender, e) =>
-					{
-						Global.SynethiaConfig.Page1Info.InteractionCount++;
-					};
-				}
-			}
-		};
+		SynethiaManager.InjectSynethiaCode(this, Global.SynethiaConfig.PagesInfo, 0, ref code);
 	}
 
 	private void Btn1_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show("You clicked Button 1!");
-		Global.SynethiaConfig.Actions[0].UsageCount++;
+		Global.SynethiaConfig.ActionsInfo[0].UsageCount++;
 	}
 
 	private void Btn2_Click(object sender, RoutedEventArgs e)
