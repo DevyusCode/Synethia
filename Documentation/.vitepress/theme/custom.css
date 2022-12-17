@@ -1,0 +1,21 @@
+:root {
+    /* brand colors */
+    --vp-c-brand: #29D435;
+    --vp-c-brand-light: #29D435;
+    --vp-c-brand-lighter: #1D9A26;
+    --vp-c-brand-dark: #29D435;
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(135deg, rgba(41, 212, 53, 1) 0%, rgba(29, 154, 38, 1) 100%);
+}
+
+html.dark {
+    /* brand colors */
+
+    /* background colors */
+    --vp-c-bg: #0a0a1e;
+    --vp-c-bg-light: #141428;
+    --vp-c-bg-lighter: #1e1e32;
+    --vp-code-bg-color: #1e1e32;
+    --vp-c-black-mute: #1e1e32;
+    --vp-c-black: #1e1e32;
+}
