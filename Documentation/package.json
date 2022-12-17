@@ -1,0 +1,28 @@
+{
+  "name": "synethia-doc",
+  "version": "1.0.0",
+  "description": "The documentation files of Synethia.",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build && powershell New-Item -Path ./../docs -Name \"CNAME\" -ItemType \"file\" -Value \"synethia.leocorporation.dev\" && powershell Copy-Item ./sitemap.xml -Destination ./../docs",
+    "docs:serve": "vitepress serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leo-Corporation/Synethia.git"
+  },
+  "keywords": [
+    "doc"
+  ],
+  "author": "Léo Corporation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leo-Corporation/Synethia/issues"
+  },
+  "homepage": "https://github.com/Leo-Corporation/Synethia#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.32",
+    "vue": "^3.2.45"
+  }
+}
