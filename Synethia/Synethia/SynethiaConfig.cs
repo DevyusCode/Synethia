@@ -54,5 +54,10 @@ namespace Synethia
 		/// Gets the most relevant pages.
 		/// </summary>
 		public List<PageInfo> MostRelevantPages => PagesInfo.OrderByDescending(x => x.Score).ToList();
+
+		/// <summary>
+		/// Gets the most relevant actions
+		/// </summary>
+		public List<ActionInfo> MostRelevantActions => ActionsInfo.OrderByDescending(x => x.UsageCount).ToList();
 	}
 }
