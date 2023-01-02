@@ -4,7 +4,7 @@
 	<TargetFramework>net5.0-windows</TargetFramework>
 	<UseWPF>true</UseWPF>
 	<Title>Synethia</Title>
-	<Version>1.0.0.2212</Version>
+	<Version>1.1.0.2301</Version>
 	<Authors>Léo Corporation</Authors>
 	<Description>A basic C# algorithm that can suggest the most relevant pages and actions to a user depending of their behavior with an application.
 </Description>
@@ -12,7 +12,7 @@
 	<PackageProjectUrl>https://github.com/Leo-Corporation/Synethia</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Leo-Corporation/Synethia</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
 	<PackageTags>algorithm;user;experience;ux;user-experience;wpf;windows</PackageTags>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<PackageIcon>logo.png</PackageIcon>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md">
+    <None Include="..\..\NUGET_README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
