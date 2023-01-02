@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Synethia
 {
@@ -48,5 +49,10 @@ namespace Synethia
 			PagesInfo = new();
 			ActionsInfo = new();
 		}
+
+		/// <summary>
+		/// Gets the most relevant pages.
+		/// </summary>
+		public List<PageInfo> MostRelevantPages => PagesInfo.OrderByDescending(x => x.Score).ToList();
 	}
 }
