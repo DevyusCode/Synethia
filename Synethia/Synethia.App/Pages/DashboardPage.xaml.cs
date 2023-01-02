@@ -43,25 +43,19 @@ public partial class DashboardPage : Page
 	{
 		Page1ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent}\n" +
 			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[0].InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[0].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[0].InteractionCount / 2d : 1d)}";
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[0].Score}";
 
 		Page2ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent}\n" +
 			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[1].InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[1].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[1].InteractionCount / 2d : 1d)}";
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[1].Score}";
 
 		Page3ScoreTxt.Text = $"Total time spent: {Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent}\n" +
 			$"Number of interaction(s): {Global.SynethiaConfig.PagesInfo[2].InteractionCount}\n" +
-			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[2].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[2].InteractionCount / 2d : 1d)}";
+			$"Synethia Score: {Global.SynethiaConfig.PagesInfo[2].Score}";
 
 
 		// Recommanded page section
-		Dictionary<AppPages, double> appScores = new();
-		appScores.Add(AppPages.Page1, Global.SynethiaConfig.PagesInfo[0].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[0].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[0].InteractionCount / 2d : 1d));
-		appScores.Add(AppPages.Page2, Global.SynethiaConfig.PagesInfo[1].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[1].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[1].InteractionCount / 2d : 1d));
-		appScores.Add(AppPages.Page3, Global.SynethiaConfig.PagesInfo[2].TotalTimeSpent * (Global.SynethiaConfig.PagesInfo[2].InteractionCount > 0 ? Global.SynethiaConfig.PagesInfo[2].InteractionCount / 2d : 1d));
-
-		// Sort by score
-		var sorted = appScores.OrderByDescending(x => x.Value);
+		var sorted = Global.SynethiaConfig.MostRelevantPages;
 
 		// Display to the user (RecommandedTxt)
 		RecommandedTxt.Text = ""; // Clear text
@@ -70,12 +64,12 @@ public partial class DashboardPage : Page
 		foreach (var item in sorted)
 		{
 			c++;
-			RecommandedTxt.Text += $"#{c} - {item.Key} - {item.Value}\n";
+			RecommandedTxt.Text += $"#{c} - {item.Name} - {item.Score}\n";
 		}
 
 		// Actions
 		// Sort by score
-		var sortedActions = Global.SynethiaConfig.ActionsInfo.OrderByDescending(x => x.UsageCount);
+		var sortedActions = Global.SynethiaConfig.MostRelevantActions;
 
 		c = 0;
 		foreach (var action in sortedActions)
