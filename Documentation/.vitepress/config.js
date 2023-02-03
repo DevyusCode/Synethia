@@ -19,7 +19,7 @@ export default {
         },
         footer: {
             message: 'Released under the MIT License.',
-            copyright: 'Copyright © 2023 Léo Corporation'
+            copyright: 'Copyright © 2023 Devyus/Léo Corporation'
         },
         socialLinks: [
             {
