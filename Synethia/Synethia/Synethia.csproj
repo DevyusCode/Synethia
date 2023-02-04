@@ -4,7 +4,7 @@
 	<TargetFramework>net5.0-windows</TargetFramework>
 	<UseWPF>true</UseWPF>
 	<Title>Synethia</Title>
-	<Version>1.1.0.2301</Version>
+	<Version>1.1.1.2302</Version>
 	<Authors>Léo Corporation</Authors>
 	<Description>A basic C# algorithm that can suggest the most relevant pages and actions to a user depending of their behavior with an application.
 </Description>
@@ -17,6 +17,7 @@
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<PackageIcon>logo.png</PackageIcon>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageReleaseNotes>- Updated logo</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
