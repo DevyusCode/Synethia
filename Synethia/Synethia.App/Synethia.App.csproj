@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PeyrSharp" Version="1.6.1.2305" />
+    <PackageReference Include="PeyrSharp" Version="1.7.0.2307" />
     <PackageReference Include="Synethia" Version="1.1.1.2302" />
   </ItemGroup>
 
