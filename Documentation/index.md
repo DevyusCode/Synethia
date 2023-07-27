@@ -2,7 +2,7 @@
 layout: home
 
 title: Synethia
-titleTemplate: Léo Corporation
+titleTemplate: Devyus
 
 hero:
   name: Synethia
