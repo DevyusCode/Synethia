@@ -15,14 +15,14 @@
   "keywords": [
     "doc"
   ],
-  "author": "Léo Corporation",
+  "author": "Devyus",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Leo-Corporation/Synethia/issues"
   },
   "homepage": "https://github.com/Leo-Corporation/Synethia#readme",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.32",
-    "vue": "^3.2.45"
+    "vitepress": "^1.5.0",
+    "vue": "^3.5.12"
   }
 }
