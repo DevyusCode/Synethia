@@ -1,6 +1,9 @@
 :root {
   /* brand colors */
   --vp-c-brand: #00a3ff;
+  --vp-c-brand-1: #00a3ff;
+  --vp-c-brand-2: #00a3ff;
+  --vp-c-brand-3: #00a3ff;
   --vp-c-brand-light: #00a3ff;
   --vp-c-brand-lighter: #00fadc;
   --vp-c-brand-dark: #00a3ff;
