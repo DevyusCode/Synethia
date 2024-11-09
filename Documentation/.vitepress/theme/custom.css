@@ -1,21 +1,27 @@
 :root {
-    /* brand colors */
-    --vp-c-brand: #00A3FF;
-    --vp-c-brand-light: #00A3FF;
-    --vp-c-brand-lighter: #00FADC;
-    --vp-c-brand-dark: #00A3FF;
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(135deg, #00A3FF 0%, #00FADC 100%);
+  /* brand colors */
+  --vp-c-brand: #00a3ff;
+  --vp-c-brand-light: #00a3ff;
+  --vp-c-brand-lighter: #00fadc;
+  --vp-c-brand-dark: #00a3ff;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    135deg,
+    #00a3ff 0%,
+    #00fadc 100%
+  );
 }
 
 html.dark {
-    /* brand colors */
+  /* brand colors */
 
-    /* background colors */
-    --vp-c-bg: #0a0a1e;
-    --vp-c-bg-light: #141428;
-    --vp-c-bg-lighter: #1e1e32;
-    --vp-code-bg-color: #1e1e32;
-    --vp-c-black-mute: #1e1e32;
-    --vp-c-black: #1e1e32;
+  /* background colors */
+  --vp-c-bg: #0a0a1e;
+  --vp-sidebar-bg-color: #141428;
+  --vp-code-block-bg: #141428;
+  --vp-c-bg-light: #141428;
+  --vp-c-bg-lighter: #1e1e32;
+  --vp-code-bg-color: #1e1e32;
+  --vp-c-black-mute: #1e1e32;
+  --vp-c-black: #1e1e32;
 }
